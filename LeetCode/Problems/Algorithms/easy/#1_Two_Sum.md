@@ -1,6 +1,6 @@
 Given an array of integers, return _**indices**_ of the two numbers such that they add up to a specific target.
 
-You may assume that each input would have _**exactly**_ one solution, and you may not use the _same_ element twice.
+You may assume that each input would have _**exactly**_ one solution, and you may _**not use the same element twice**_.
 
 Example:
 ```
@@ -22,12 +22,19 @@ class Solution(object):
         """
         res = []
         for n in nums:
-            if (target-n) in nums:
-                res.append(nums.index(n))
-                res.append(nums.index(target-n))
-                return(res)
+            index_n = nums.index(n)
+            for m in nums[index_n + 1:]:
+                if (m + n) == target:
+                    index_m = nums.index(m,index_n+1)
+                    res.append(index_n)
+                    res.append(index_m)
+                    return(res)
 ```
-Accepted: 24ms
+_Special Cases:[3,2,4] 6 or [3,3] 6_
+
+**Attention: list.index(e[,start_index, end]) returns the FIRST index of the required element!**
+
+Accepted: 2868 ms, 12.6 MB
 
 #### Complexity Analysis
 - Time complexity : O(n^2)  For each element, we try to find its complement by looping through the rest of array which takes O(n) time. Therefore, the time complexity is O(n^2)
@@ -105,6 +112,5 @@ class Solution:
                 h[num] = i
             else:
                 return [h[n], i]
-                
-     ```
-24ms
+```
+40ms, 13.2 MB
