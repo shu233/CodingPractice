@@ -63,3 +63,27 @@ class Solution(object):
 ```
 Success: 24 ms, faster than 52.68%; 11.8 MB, less than 81.48%
 
+---
+### Other Solution
+Recursion
+```
+    # Base case
+    if n == 1:
+        return '1'
+    
+    # count and say resursion
+    cur_num, rval = 1, ""
+    
+    prev = self.countAndSay(n-1)
+    
+    for idx in range(len(prev)):
+        if idx > 0 and prev[idx-1] == prev[idx]:
+            cur_num += 1
+            rval = rval[:-2] + str(cur_num) + rval[-1]
+        else:
+            cur_num = 1
+            rval += str(cur_num) + prev[idx]
+    
+    return rval
+```
+20 ms, faster than 78.58% ; 11.9 MB, less than 18.52%
