@@ -12,7 +12,7 @@ return [0, 1].
 
 ---
 ### My Answer:
-```
+```Python
 class Solution(object):
     def twoSum(self, nums, target):
         """
@@ -56,7 +56,7 @@ A simple implementation uses two iterations. In the first iteration, we add each
 Then, in the second iteration we check if each element's complement (target - nums[i]) exists in the table. 
 **Beware that the complement must not be nums[i] itself!**
 
-```
+```Java
 public int[] twoSum(int[] nums, int target) {
     Map<Integer, Integer> map = new HashMap<>();
     for (int i = 0; i < nums.length; i++) {
@@ -78,7 +78,7 @@ Since the hash table reduces the look up time to O(1), the time complexity is O(
 
 ### 2. One-pass Hash Table
 It turns out we can do it in one-pass. While we iterate and inserting elements into the table, we also look back to check if current element's complement already exists in the table. If it exists, we have found a solution and return immediately.
-```
+```Java
 public int[] twoSum(int[] nums, int target) {
     Map<Integer, Integer> map = new HashMap<>();
     for (int i = 0; i < nums.length; i++) {
@@ -97,7 +97,7 @@ public int[] twoSum(int[] nums, int target) {
 
 ---
 ### Other Solution in Python3
-```
+```Python
 class Solution:
     def twoSum(self, nums, target):
         """
