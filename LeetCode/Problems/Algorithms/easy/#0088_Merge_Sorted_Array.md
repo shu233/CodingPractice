@@ -64,7 +64,7 @@ class Solution(object):
         :type n: int
         :rtype: None Do not return anything, modify nums1 in-place instead.
         """
-        index = len(nums1)-1
+        index = m + n -1
         m -= 1
         n -= 1
         
@@ -77,6 +77,6 @@ class Solution(object):
                 m-=1
             index-=1
 ```            
-24 ms, faster than 65.10%  ; 11.8 MB, less than 46.15%            
+16 ms, faster than 97.41%  ; 11.8 MB, less than 46.15%            
 
-**Idea**: 后部为空，所以从后部开始，添加最大值
+**Idea**: 后部为空，所以从后部开始，添加最大值 -> 不影响前部的nums1
