@@ -78,3 +78,5 @@ class Solution(object):
             index-=1
 ```            
 24 ms, faster than 65.10%  ; 11.8 MB, less than 46.15%            
+
+**Idea**: 后部为空，所以从后部开始，添加最大值
