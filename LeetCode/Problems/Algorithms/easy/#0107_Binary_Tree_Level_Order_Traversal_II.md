@@ -68,4 +68,37 @@ Idea:
 - traversal from the root: FIFO
 - return lists: each level has its own list
 
+Improve: remove stack, directly use res list by using index as impliment of level
+```Python
+class Solution(object):
+    def levelOrderBottom(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[List[int]]
+        """
+        if not root: return None
+        
+        traversal = [(root,0)]       
+        res = [[root.val]]       
+        while traversal:
+            node, level = traversal.pop(0)
+            
+            level_list = [] if level+1 > len(res)-1 else res[level+1]
+            
+            if node.left != None:
+                level_list.append(node.left.val)
+                traversal.append((node.left, level+1))
+            if node.right != None:
+                level_list.append(node.right.val)
+                traversal.append((node.right, level+1))
+                
+            if level_list:    
+                if level+1 > len(res)-1: res.append(level_list)
+                else: res[level+1] = level_list
+        
+        return res[::-1]
+```
+Success: 20 ms, faster than 82.95% ; 12.3 MB, less than 56.52%
+
+
 
