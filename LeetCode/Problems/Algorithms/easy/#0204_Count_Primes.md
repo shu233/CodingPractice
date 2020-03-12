@@ -125,7 +125,7 @@ def countPrimes(self, n: int) -> int:
 ```        
 128 ms, faster than 98.39%  ;  35.1 MB, less than 44.44%        
         
-
+**Notice:** Do not use function sqrt, because it is expensive [do not use: m < sqrt(n)]. Instead, use m * m < n.
 
 
 
