@@ -59,7 +59,28 @@ class Solution(object):
 20 ms, faster than 61.17% ; 11.7 MB, less than 82.35%
 
 ### Other Solution - bitwise operation
-```
+位运算与1相与，如果结果为1则为2的幂次方
+```python
+class Solution(object):
+    def isPowerOfTwo(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        if n<=0: return False
+        
+        count = 0
+        while n > 0:
+            if n & 1 == 1:
+                count += 1
+            n = n >> 1
+            
+        return True if count == 1 else False
+```        
+24 ms, faster than 31.85% ; 11.8 MB, less than 58.82% 
+
+[简介版](https://blog.csdn.net/weixin_38426554/article/details/95787833?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task)
+```python
 class Solution(object):
     def isPowerOfTwo(self, n):
         """
@@ -67,5 +88,5 @@ class Solution(object):
         :rtype: bool
         """
         return not n&n-1 if n else False
-```        
+```     
 8 ms, faster than 99.62% ; 11.8 MB, less than 52.94%
